@@ -1,0 +1,7 @@
+/* ============================================================
+   ConPro — Tasks: Only module-specific overrides
+   Modal, action buttons now in shared pages.css
+   ============================================================ */
+
+/* (All task patterns now use shared .action-btn, .modal-*, .modal-form) */
+/* This file kept for any future task-specific styles */

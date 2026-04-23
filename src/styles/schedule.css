@@ -1,0 +1,248 @@
+/* ============================================================
+   ConPro — Schedule / Gantt: Module-specific styles
+   ============================================================ */
+
+.gantt-wrapper { overflow: hidden; }
+
+.gantt-container {
+  display: flex;
+  min-height: 500px;
+}
+
+/* ── Left panel: task labels ── */
+.gantt-labels {
+  width: 260px;
+  flex-shrink: 0;
+  border-right: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.gantt-label-header {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--sp-4);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  background: var(--green-50);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.gantt-label-row {
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 var(--sp-4);
+  border-bottom: 1px solid var(--gray-200);
+  gap: 1px;
+}
+
+.gantt-label-row.is-milestone { background: var(--bg-amber); }
+
+.gantt-label-text {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gantt-label-person {
+  font-size: 0.65rem;
+  color: var(--gray-500);
+}
+
+/* ── Right panel: scrollable timeline ── */
+.gantt-timeline-scroll {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: var(--color-input-bg);
+}
+
+.gantt-months {
+  position: relative;
+  height: 36px;
+  background: var(--green-50);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.gantt-month {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: var(--sp-2);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  border-left: 1px solid var(--color-border);
+}
+
+.gantt-rows { position: relative; }
+
+.gantt-row {
+  position: relative;
+  height: 40px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.gantt-grid-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--green-100);
+  z-index: 0;
+}
+
+.gantt-today {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-danger);
+  z-index: 5;
+  opacity: 0.7;
+}
+
+/* ── Gantt Bars ── */
+.gantt-bar {
+  position: absolute;
+  top: 8px;
+  height: 24px;
+  border-radius: var(--sp-1);
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  z-index: 2;
+  overflow: hidden;
+  transition: opacity var(--ease-fast);
+}
+
+.gantt-bar:hover {
+  opacity: 0.85;
+  box-shadow: var(--shadow);
+}
+
+.gantt-bar-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gantt-bar.completed   { background: var(--green-400); }
+.gantt-bar.in-progress { background: linear-gradient(90deg, var(--color-primary) 60%, var(--green-400) 100%); }
+.gantt-bar.upcoming    { background: var(--gray-400); }
+
+/* ── Milestones ── */
+.gantt-milestone {
+  position: absolute;
+  top: 8px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+}
+
+.gantt-diamond {
+  width: 16px;
+  height: 16px;
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+.gantt-milestone.completed .gantt-diamond   { background: var(--color-info); }
+.gantt-milestone.in-progress .gantt-diamond { background: var(--color-primary); }
+.gantt-milestone.upcoming .gantt-diamond    { background: var(--color-warning); border: 2px solid #ff8f00; }
+
+/* ── Legend ── */
+.gantt-legend {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  padding: 14px var(--sp-5);
+  border-top: 1px solid var(--color-border-light);
+  background: var(--color-input-bg);
+  flex-wrap: wrap;
+}
+
+.gantt-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.gantt-legend-swatch {
+  width: 14px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.gantt-legend-swatch.completed   { background: var(--green-400); }
+.gantt-legend-swatch.in-progress { background: var(--color-primary); }
+.gantt-legend-swatch.upcoming    { background: var(--gray-400); }
+
+.gantt-legend-diamond {
+  width: 10px;
+  height: 10px;
+  background: var(--color-warning);
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+.gantt-legend-today {
+  width: 14px;
+  height: 10px;
+  border-left: 2px solid var(--color-danger);
+}
+
+.milestone-row { background: var(--bg-amber); }
+
+.milestone-label {
+  display: inline-block;
+  margin-left: var(--sp-2);
+  padding: 1px var(--sp-2);
+  font-size: 0.65rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  background: var(--bg-amber);
+  color: var(--text-amber);
+}
+
+/* ── Gantt mobile hint ── */
+.gantt-mobile-hint {
+  display: none;
+  text-align: center;
+  padding: var(--sp-6) var(--sp-4);
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+}
+
+.gantt-mobile-hint .icon {
+  font-size: 2rem;
+  margin-bottom: var(--sp-2);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .gantt-labels { width: 180px; }
+  .gantt-label-text { font-size: 0.72rem; }
+}
+
+@media (max-width: 480px) {
+  .gantt-labels { width: 140px; }
+  .gantt-label-person { display: none; }
+  .gantt-container { min-height: 350px; }
+}

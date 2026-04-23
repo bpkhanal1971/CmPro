@@ -1,0 +1,123 @@
+.npdp-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.npdp-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  border: 1.5px solid var(--color-border, #d1d5db);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.92rem;
+  min-height: 40px;
+  transition: border-color 0.15s;
+}
+
+.npdp-input:hover {
+  border-color: var(--color-primary, #2e7d32);
+}
+
+.npdp-placeholder {
+  color: #9ca3af;
+}
+
+.npdp-cal-icon {
+  font-size: 1.1rem;
+  margin-left: 8px;
+  opacity: 0.6;
+}
+
+.npdp-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 1000;
+  background: #fff;
+  border: 1.5px solid var(--color-border, #d1d5db);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 12px;
+  min-width: 280px;
+  animation: npdp-fadeIn 0.15s ease;
+}
+
+@keyframes npdp-fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.npdp-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.npdp-nav {
+  background: none;
+  border: 1px solid var(--color-border, #d1d5db);
+  border-radius: 6px;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text, #333);
+  transition: background 0.15s;
+}
+
+.npdp-nav:hover {
+  background: var(--green-50, #e8f5e9);
+}
+
+.npdp-select {
+  flex: 1;
+  padding: 4px 6px;
+  border: 1px solid var(--color-border, #d1d5db);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #fff;
+  cursor: pointer;
+  color: var(--color-text, #333);
+}
+
+.npdp-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.npdp-day {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: var(--color-text, #333);
+  font-weight: 500;
+  transition: background 0.12s, color 0.12s;
+}
+
+.npdp-day:hover {
+  background: var(--green-50, #e8f5e9);
+  color: var(--color-primary, #2e7d32);
+}
+
+.npdp-day.selected {
+  background: var(--color-primary, #2e7d32);
+  color: #fff;
+  font-weight: 700;
+}

@@ -1,0 +1,114 @@
+/* ============================================================
+   ConPro — Budget: Module-specific styles
+   Summary cards use shared .summary-card base
+   ============================================================ */
+
+/* ── Budget Card Accents ── */
+.budget-card.spent    { border-color: var(--color-border-light); }
+.budget-card.positive { border-color: var(--green-300); background: #f6fdf6; }
+.budget-card.negative { border-color: #ef9a9a; background: #fff5f5; }
+
+.budget-card.positive .summary-value { color: var(--color-primary); }
+.budget-card.negative .summary-value { color: var(--color-danger); }
+.budget-card.positive .summary-sub   { color: var(--color-primary); }
+.budget-card.negative .summary-sub   { color: var(--color-danger); }
+
+/* ── Horizontal Bar Chart ── */
+.budget-chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.budget-chart-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 110px;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.budget-chart-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.budget-chart-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.budget-bar-track {
+  height: 12px;
+  background: var(--gray-200);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.budget-bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.budget-bar.planned { background: var(--green-300); }
+.budget-bar.actual  { background: var(--color-primary); }
+.budget-bar.actual.over { background: var(--color-danger); }
+
+.budget-chart-variance {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-align: right;
+}
+
+.budget-chart-variance.positive { color: var(--color-primary); }
+.budget-chart-variance.negative { color: var(--color-danger); }
+
+/* ── Chart Legend ── */
+.budget-chart-legend {
+  display: flex;
+  gap: var(--sp-5);
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--gray-200);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.budget-chart-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-bar {
+  width: 16px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.legend-bar.planned { background: var(--green-300); }
+.legend-bar.actual  { background: var(--color-primary); }
+.legend-bar.over    { background: var(--color-danger); }
+
+/* ── Total Row ── */
+.budget-total-row {
+  background: var(--green-50) !important;
+  border-top: 2px solid var(--color-border);
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .budget-chart-row { grid-template-columns: 100px 1fr 80px; }
+}
+
+@media (max-width: 480px) {
+  .budget-chart-row { grid-template-columns: 1fr; gap: var(--sp-1); }
+  .budget-chart-label, .budget-chart-variance { text-align: left; }
+}
